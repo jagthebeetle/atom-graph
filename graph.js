@@ -22,7 +22,7 @@ atom.graph.AdjacencyList.prototype.addVertexByKey = function(keys) {
   var oldPopulation = self.population;
   Array.prototype.forEach.call(arguments, function(vertex) {
     if (!self.vertices[vertex]) {
-      self.vertices[vertex] = new _Vertex(vertex);
+      self.vertices[vertex] = new atom.graph._Vertex(vertex);
       self.population++;
     }
   });
@@ -63,9 +63,11 @@ atom.graph.AdjacencyList.prototype.deleteByKey = function(deleteKey) {
  * other properties of a vertex.
  * @constructor
  */
-function _Vertex(name) {
+atom.graph._Vertex = function(name) {
   this.name = name;
   this.adjacencies = {};
 };
 
-module.exports = atom.graph;
+if (module && module.exports) {
+  module.exports = atom.graph;
+}
