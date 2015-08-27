@@ -1,5 +1,5 @@
-//goog.provide('atom.graph');
 "use strict";
+//goog.provide('atom.graph');
 var atom = {graph:{}};
 
 /**
@@ -35,17 +35,16 @@ atom.graph.AdjacencyList.prototype.addVertexByKey = function(keys) {
  * This causes a TypeError if A does not exist, but will create a key
  * and set it to undefined if vertex B does not exist.
  * @throws {TypeError} If vertex a does not exist, accessing its adjacencies
- * is an error. 
- * @method connectVertexByKey
+ * is an error.
  */
 atom.graph.AdjacencyList.prototype.connectToByKey = function(keyA, keyB) {
   this.vertices[keyA].adjacencies[keyB] = this.vertices[keyB];
+  return true;
 };
 
 /**
  * Removes references to object from all vertices that might be connected
  * (iterating over all vertices) and then removes key from vertices array.
- * @method deleteByKey
  * @param {number|string} hostKey Vertex key to delete.
  * @return {boolean} Return value of delete operation
  */
